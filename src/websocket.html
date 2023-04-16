@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Test</title>
+  <script>
+    const socket = new WebSocket('ws://localhost:9001');
+
+    socket.addEventListener('open', (event) => {
+      console.log('WebSocket is open:', event);
+      socket.send('Hello, WebSocket server!');
+    });
+
+    socket.addEventListener('message', (event) => {
+      console.log('Message from server:', event.data);
+    });
+
+    socket.addEventListener('close', (event) => {
+      console.log('WebSocket is closed:', event);
+    });
+
+    socket.addEventListener('error', (event) => {
+      console.log('WebSocket error:', event);
+    });
+  </script>
+</head>
+<body>
+  <h1>WebSocket Test</h1>
+</body>
+</html>
